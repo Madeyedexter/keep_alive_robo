@@ -1,3 +1,5 @@
+package main;
+
 import java.awt.Robot;
 import java.awt.Dimension;
 import java.awt.Toolkit;
