@@ -4,6 +4,7 @@ import java.awt.Robot;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.*;
+import main.MainFrame;
 
 class KeepAliveRobo{
 	private Robot robot;
@@ -59,6 +60,32 @@ class KeepAliveRobo{
 			x.add(sx);
 			y.add(sy);
 		}
+		
+		/**
+		Does a paint job. Opens MS Paint and starts drawing random shit.
+		*/
+		private void drawRandomShit(){
+			robot.keyPress(KeyEvent.VK_WINDOWS);
+			robot.keyPress(KeyEvent.VK_R);
+			robot.keyRelease(KeyEvent.VK_R);
+			robot.keyRelease(KeyEvent.VK_WINDOWS);
+			Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+			clipboard.setContents(new StringSelection("mspaint"));
+			
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			robot.keyPress(KeyEvent.VK_V);
+			robot.keyRelease(KeyEvent.VK_V);
+			robot.keyRelease(KeyEvent.VK_CONTROL);
+			//press and release enter
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+			//center
+			keepAliveRobo.go(0);
+		}
+		
+		
+		
+		
 		
 	}
 	public static void main(String args[]) throws Exception{
